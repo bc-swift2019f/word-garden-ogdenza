@@ -36,6 +36,9 @@
                                 <rect key="frame" x="137" y="353" width="140" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play Again"/>
+                                <connections>
+                                    <action selector="playAgainButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fw2-Lu-22H"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flower8" translatesAutoresizingMaskIntoConstraints="NO" id="szS-yU-MX8">
                                 <rect key="frame" x="20" y="418" width="374" height="444"/>
@@ -49,16 +52,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="7io-YV-qWP">
-                                <rect key="frame" x="114" y="227" width="187" height="30"/>
+                                <rect key="frame" x="113.5" y="227" width="187" height="30"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gIf-8L-9LT">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gIf-8L-9LT">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="LQu-V3-oIX"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <action selector="doneKeyPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="Pkv-ZR-DFi"/>
+                                            <action selector="guessedLetterFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="kho-GF-lWe"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahF-ah-wHW">
                                         <rect key="frame" x="42" y="0.0" width="145" height="30"/>
@@ -66,6 +73,9 @@
                                             <constraint firstAttribute="width" constant="145" id="U9x-3a-naN"/>
                                         </constraints>
                                         <state key="normal" title="Guess This Letter"/>
+                                        <connections>
+                                            <action selector="guessLetterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tid-7u-0AC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -77,6 +87,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="flowerImageView" destination="szS-yU-MX8" id="1b3-nx-4fo"/>
+                        <outlet property="guessCountLabel" destination="uOt-xk-aMr" id="nNL-ft-9ON"/>
+                        <outlet property="guessLetterButton" destination="ahF-ah-wHW" id="XYF-Fl-has"/>
+                        <outlet property="guessedLetterField" destination="gIf-8L-9LT" id="klB-u5-vUY"/>
+                        <outlet property="playAgainButton" destination="aBT-8T-jyu" id="tOp-hw-1Rn"/>
+                        <outlet property="userGuessLabel" destination="hGR-Sl-jAR" id="7KX-Eq-ZbE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
